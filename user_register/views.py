@@ -20,3 +20,7 @@ def delete(request, id):
     user = user_prof.objects.get(id=id)
     user.delete()
     return redirect('home')
+
+
+def test():
+    pass
