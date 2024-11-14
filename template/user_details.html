@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>name : </p>
+    <input type="text" name="name">
+    <br>
+    <p>image: </p>
+    <input type="file" name="image">
+    <br>
+    <button type="submit">submit</button>
+</form>
+
+{% for i in all_user %}
+
+<p>{{i.name}}</p>
+<br>
+<img style="height:150px; width:150px;" src="{{i.image.url}}" alt="">
+
+<button type="submit"><a href="{% url 'delete' i.id %}">delete</a></button>
+
+{% endfor %}
+</body>
+</html>
